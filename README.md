@@ -165,7 +165,7 @@ gsutil cp sparkgeco-1.0.0-all.jar gs://your-bucket/
 
 ### 6. Dataset
 
-SparkGeco has been extensively tested by using the following genomic datasets:
+SparkGeco has been extensively tested by using genomic sequences from the following species available on NCBI:
 1. [Picea Abies](https://www.ncbi.nlm.nih.gov/datasets/taxonomy/3329/)
 2. [Picea Glauca](https://www.ncbi.nlm.nih.gov/datasets/taxonomy/3330/)
 3. [Pinus Taeda](https://www.ncbi.nlm.nih.gov/datasets/taxonomy/3352/)
