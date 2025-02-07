@@ -163,6 +163,14 @@ gsutil cp sparkgeco-1.0.0-all.jar gs://your-bucket/
 ```
 
 
+### 6. Dataset
+
+SparkGeco has been extensively tested by using the following genomic datasets:
+1. [Picea Abies](https://www.ncbi.nlm.nih.gov/datasets/taxonomy/3329/)
+2. [Picea Glauca](https://www.ncbi.nlm.nih.gov/datasets/taxonomy/3330/)
+3. [Pinus Taeda](https://www.ncbi.nlm.nih.gov/datasets/taxonomy/3352/)
+4. [SARS-CoV-2](https://www.ncbi.nlm.nih.gov/datasets/taxonomy/2697049/)
+
 
 
 
