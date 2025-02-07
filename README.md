@@ -6,6 +6,12 @@
 
 SparkGeco is released as a JAR file (`sparkgeco-1.0.0.jar`) and can be integrated into any Apache Spark pipeline written in Java. To use SparkGeco in your Java project, include the JAR in your classpath and import the necessary classes.
 
+Currently, SparkGeco provides the following specialized classes, each implementing a different compression technique:
+
+- **`BpeRDD`** – Byte Pair Encoding (BPE)  
+- **`ChenRDD`** – Chen-Wang Compression  
+- **`LzwRDD`** – Lempel-Ziv-Welch (LZW)  
+- **`FmRDD`** – FM-Index Compression  
 
 ### Example
 
@@ -49,12 +55,6 @@ public class Main {
 
   ```
 
-Currently, SparkGeco provides the following specialized classes, each implementing a different compression technique:
-
-- **`BpeRDD`** – Byte Pair Encoding (BPE)  
-- **`ChenRDD`** – Chen-Wang Compression  
-- **`LzwRDD`** – Lempel-Ziv-Welch (LZW)  
-- **`FmRDD`** – FM-Index Compression  
 
 To switch to a different compression technique, simply replace `BpeRDD` with the corresponding class (`ChenRDD`, `LzwRDD`, or `FmRDD`).  
 
