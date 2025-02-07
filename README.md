@@ -58,3 +58,112 @@ public class Main {
 
 To switch to a different compression technique, simply replace `BpeRDD` with the corresponding class (`ChenRDD`, `LzwRDD`, or `FmRDD`).  
 
+## Developing a Spark Application to run on a Distributed System
+
+To develop a Java application that integrates Apache Spark and SparkGeco, follow these steps:  
+
+### 1. Set Up Your Java Project  
+
+Ensure you have the following installed:  
+- Java 8 or later  
+- Apache Spark (compatible version)  
+- Maven or Gradle for dependency management  
+
+#### **Maven Integration**
+
+1. Download the `sparkgeco-1.0.0.jar` file and place it in a directory (e.g., `libs/`) inside your project.
+2. Add the JAR to your Maven project by modifying the `pom.xml`:
+
+```xml
+<dependencies>
+    <!-- Apache Spark dependencies -->
+    <dependency>
+        <groupId>org.apache.spark</groupId>
+        <artifactId>spark-core_2.12</artifactId>
+        <version>3.3.0</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.spark</groupId>
+        <artifactId>spark-sql_2.12</artifactId>
+        <version>3.3.0</version>
+    </dependency>
+
+    <!-- SparkGeco JAR -->
+    <dependency>
+        <groupId>your.organization</groupId>
+        <artifactId>sparkgeco</artifactId>
+        <version>1.0.0</version>
+        <scope>system</scope>
+        <systemPath>${project.basedir}/libs/sparkgeco-1.0.0-all.jar</systemPath>
+    </dependency>
+</dependencies>
+ ```
+
+#### **Gradle Integration**
+
+1. Download the sparkgeco-1.0.0-all.jar file and place it in a directory (e.g., libs/) inside your project.
+2. Add the JAR to your Gradle project by modifying the build.gradle
+
+```xml
+dependencies {
+    implementation 'org.apache.spark:spark-core_2.12:3.3.0'
+    implementation 'org.apache.spark:spark-sql_2.12:3.3.0'
+
+    // SparkGeco JAR
+    implementation files('libs/sparkgeco-1.0.0-all.jar')
+}
+```
+
+### 2. Write Your Java Application
+
+See
+
+### 3.  Package Your Application
+
+Once your application is ready, package it into a JAR file using Maven:
+```xml
+mvn clean package
+```
+
+or Gradle:
+```xml
+gradle build
+```
+
+The JAR file will be generated inside the target/ or build/libs/ directory.
+
+### 4. Running on a Spark Cluster
+To run your Spark application on a cluster, use the spark-submit command:
+```xml
+spark-submit \
+  --master yarn \
+  --deploy-mode cluster \
+  --class your.package.SparkGecoApp \
+  --jars sparkgeco-1.0.0-all.jar \
+  your-application.jar /path/to/input
+```
+
+### 5. Deploying on Google Cloud Dataproc
+
+Google Cloud Dataproc provides a managed Spark environment. Follow these steps to deploy your SparkGeco application:
+
+#### 5.1 Create a Dataproc Cluster
+```xml
+gcloud dataproc clusters create sparkgeco-cluster \
+    --region us-central1 \
+    --single-node \
+    --master-machine-type n1-standard-4 \
+    --image-version 2.0-debian10
+```
+
+#### 5.2 Upload Your JAR to Google Cloud Storage
+```xml
+gsutil cp your-application.jar gs://your-bucket/
+gsutil cp sparkgeco-1.0.0-all.jar gs://your-bucket/
+```
+
+
+
+
+
+
