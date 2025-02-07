@@ -7,7 +7,7 @@
 SparkGeco is released as a JAR file (`sparkgeco-1.0.0.jar`) and can be integrated into any Apache Spark pipeline written in Java. To use SparkGeco in your Java project, include the JAR in your classpath and import the necessary classes.
 
 
-###Example
+### Example
 
 Below, we provide an example demonstrating how to compress genomic sequences and search for specific patterns using SparkGeco.
 In this example, we first set the path of the input sequences from the command-line arguments. Then, a list of query patterns is defined. The Spark environment is initialized, and the sequences are read from a file to create a `BpeRDD` object. Finally, for each query, the code performs a search, aggregates the results, and prints the total number of occurrences found.
