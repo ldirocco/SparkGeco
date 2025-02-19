@@ -172,11 +172,11 @@ SparkGeco has been extensively tested by using genomic sequences from the follow
 4. [SARS-CoV-2](https://www.ncbi.nlm.nih.gov/datasets/taxonomy/2697049/)
 
 
-### Reproducibility of Experiments  
+### 7.Reproducibility of Experiments  
 
 To reproduce the experiments conducted with SparkGeco, we evaluated the execution time of pattern counting using all available data structures (`BpeRDD`, `ChenRDD`, `LzwRDD`, and `FmRDD`). We varied the number of computing units and the size of the input dataset to analyze scalability and performance. In this section, we provide a script for benchmarking and detailed instructions on how to run experiments on a Spark cluster.  
 
-### Experiment Script  
+#### Experiment Script  
 
 The following Java program evaluates the execution time for pattern counting on all RDD structures supported by SparkGeco. It takes as input:  
 - The path to the input dataset (FASTA or FASTQ format)  
@@ -283,15 +283,15 @@ public class BenchmarkSparkGeco {
 }
 ```
 
-## Running the Experiment on a Spark Cluster
+#### Running the Experiment on a Spark Cluster
 To run the experiment on a distributed Spark cluster, follow these steps:
 
-### 1.Package the Application
+1. Package the Application
 
 Use Maven: mvn clean package
 Or Gradle: gradle build
 
-### 2.Upload the JAR to the Cluster
+2. Upload the JAR to the Cluster
 If using Google Cloud Dataproc:
 
 ```xml
@@ -299,7 +299,7 @@ gsutil cp your-application.jar gs://your-bucket/
 gsutil cp sparkgeco-1.0.0-all.jar gs://your-bucket/
 ```
 
-### 3.Submit the Spark Job
+3. Submit the Spark Job
 ```xml
 spark-submit \
   --master yarn \
@@ -312,7 +312,7 @@ spark-submit \
   gs://your-bucket/your-application.jar /path/to/input /path/to/queries.txt
 ```
   
-## Scalability and Performance Experiments
+#### Scalability and Performance Experiments
 To assess scalability and performance, repeat the experiments by varying:
 
 1. Dataset Size: Use different input datasets stored in a distributed storage (e.g., HDFS).
